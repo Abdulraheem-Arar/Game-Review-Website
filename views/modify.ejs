@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+  <div class="container">
+    <h1>
+      <%= heading %>
+    </h1>
+
+    <% if (locals.post) { %>
+      <form id="editForm" method="post" action="/edit/<%=post.id%>">
+        <input type='hidden' name ='id' value = <%=post.id%> >
+        <input type="text" name="game" value="<%=post.game %>">
+        <textarea name="description" rows="10"><%=post.description %></textarea>
+        <label for="customRange3" class="form-label">Rating</label>
+        <input type="range" class="form-range" min="0" max="5" id="customRange3" name="rating" value = <%=post.rating  %>>  
+        <button class="full-width" type="submit">
+          <%= submit %>
+        </button>
+      </form>
+      <% } else {%>
+        <form id="newPostForm" method="post" action="/new">
+          <input type="text" name="game" placeholder="Title" required>
+          <textarea name="description" placeholder="Content" rows="10"></textarea>
+          <label for="customRange3" class="form-label">Rating</label>
+          <input type="range" class="form-range" min="0" max="5" id="customRange3" name="rating">
+          <button class="full-width" type="submit">
+            <%= submit %>
+          </button>
+        </form>
+        <% } %>
+
+  </div>
+  <%- include('partials/footer') %>

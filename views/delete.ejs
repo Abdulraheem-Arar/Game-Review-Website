@@ -1,0 +1,17 @@
+<%- include('partials/header') %>
+
+
+<div class="jumbotron centered">
+  <div class="container">
+    
+    <h1 class="display-3">Are you sure you want to delete your entry?</h1>
+    <form action="/delete" method="post">
+        <input type='hidden' name ='id' value = <%=post.id%> >
+        <button class='delete' >Delete</button>
+    </form>
+    <hr>
+
+  </div>
+</div>
+
+<%- include('partials/footer') %>
